@@ -1,0 +1,422 @@
+\documentclass[11pt]{article}
+%%% style file you will need for some commands%%%%%%%%%%%%%%%%%%%%%%
+%% aahomework is the style file I have used to typeset many commands, feel free to use them in your solutions.
+%% bear in mind that if you need to define your command then you will have to make sure that it is not in conflict to my pre-defined command. Otherwise you will need to either use
+%% commands defined by me or edit the style file appropriately.
+
+%%\usepackage{anurag}
+\usepackage{aahomework}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+%%the \circled command has been used to create text inside circle for grading table.
+
+%%%\geometry{letterpaper, textwidth=17cm, textheight=22cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THE FOLLOWING IS FOR THE COVER SHEET--FILL IN appropriately%%
+\newcommand{\mycourse}{MATH-200}
+\newcommand{\semesteryear}{Fall 2018}
+\newcommand{\myname}{TYPE YOUR NAME here}  %%TYPE in YOUR NAME HERE  <<<<<<<<<<<<<<<|========================================= (PLEASE PUT YOUR NAME HERE)==========
+\newcommand{\hwnumber}{4} %%TYPE in the HW  number 1,2,3,.. HERE  <<<<<<<<<<<<<<<|========================================= (PLEASE PUT the HW number here)==========
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cover sheet preamble ends here
+
+%%%%%%%%FOLLOWING counter IS TO AUTOMATE THE NUMBERING OF THE PROBLEMS%%%%%%%%%%%%%
+\newcounter{Quesnumb}  %% this creates the counter
+\setcounter{Quesnumb}{0} %% this sets a specific value to the counter
+%%%%%% the following new command can be used to increment and print the counter  http://chenfuture.wordpress.com/2007/12/31/a-simple-counter/
+\newcommand{\problemnum}{%
+            \addtocounter{Quesnumb}{1}%
+            \arabic{Quesnumb}}
+
+
+%%%% following is NOT TO BE EDITED, DO NOT TYPE ANYTHING HERE, it will receive inputs from what you fill above%%%%%%%%%%%%%%%%%%
+\title{\textbf{\mycourse} \hfill Homework \hwnumber \hfill \textbf{\semesteryear}} %% DO NOT type in HW number here
+\author{\myname} %% DO NOT type in your name here.
+\date{ \textbf{DUE DATE Oct 30, 2018 {\red by 11:00PM (in \textsc{Dropbox})}}} %% DO NOT TYPE in mycourse and/or quarteryear values
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt} %% paragraphs will not be indented
+\setlength{\parskip}{.25cm} %% space between paragraphs
+\linespread{1.1}
+
+\begin{document}
+\thispagestyle{empty} %%this is to supress the page number on the cover page
+\include{hwcover} %% make sure you have the file "hwcover.tex" in the same folder as your actual homework file
+\renewcommand{\arraystretch}{1} %% this is to make sure that array stretch in "hwcover" is nuetralized.
+
+\clearpage %% these are to reset the page number for the first page of your homework to 1.
+\pagenumbering{arabic} %% these are to reset the page number for the first page of your homework to 1.
+\textbf{Some instructions:}
+\begin{itemize}
+    \item Please follow the instructions for homework submission that are given in the syllabus and on the HW webpage.
+    %%%\item Do not forget \textbf{to staple your HW and attach the cover sheet}.
+    \item In the questions given below \textsf{\bf BLOCH 1.4.18} refers to Bloch's book section 1.4, problem no. 18.
+    \item Please use the \LaTeX~ file that I have provided on the homework page to typeset your homework.
+    \item Please name the files as follows: Suppose Carl F. Gauss was submitting HW \#\hwnumber, then the files should be named as \textit{CGaussHW\hwnumber.tex} and \textit{CGaussHW\hwnumber.pdf}.
+    \item \LaTeX{} users:
+       \begin{itemize}
+            \item Please upload both the \LaTeX and PDF files and follow the instructions written above for naming the files.
+            \item Use the {\blue ``problem'' environment} for questions and the {\blue ``solution'' environment} to type the solutions. For example
+            {\magenta
+            \begin{verbatim}
+                 \begin{solution}
+                     You can start typing your solution here.........
+                 \end{solution}
+            \end{verbatim}
+            }
+             will give you the following output:
+
+                \begin{solution}
+                You can start typing your solution here.........
+                \end{solution}
+
+            \item For writing proofs you can use the following \LaTeX~ environment
+               {\blue
+                \begin{verbatim}
+                    \begin{proof}
+                    My first proof is quite awesome
+                    \end{proof}
+                    \end{verbatim}
+                    }
+                It will give you the following
+                \begin{proof}
+                My first proof is quite awesome
+                \end{proof}
+        \end{itemize}
+        \end{itemize}
+\newpage
+\begin{center}
+\textbf{\blue For writing proofs:}
+\end{center}
+\begin{itemize}
+    \item Declare what kind of proof you are going to use.
+    \item In case you are proving an equivalent statement then before you prove anything first state that equivalent statement and justify why your statement is equivalent to the statement given in the problem.
+    \item You should use complete sentences in English to express each step.
+    \item Your proof should read like a paragraph and not a bulleted list, i.e. the sentences should have a flow and structure.
+    \item Avoid using quantifiers within the sentences, i.e. instead of writing: ``$\exists x \in \bbR$ such that $\ldots$'', you should write ``there exists a real number $x$ such that $\ldots$.''
+\end{itemize}
+%%\vspace*{0.3cm}
+\newpage
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% YOU MAY START TYPING YOUR ANSWERS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: In my style file aaHWbeginner.sty I have defined two environments "problem" and "solution" that can be used to type in your question and answer respectively as shown below.%%
+
+
+\begin{problem}{\problemnum}
+\begin{tcolorbox}[colback=red!10!white, colframe=red!50!blue, title=Primal integers, center title]
+\begin{define}
+An integer $q \geq 2$ is \textbf{primal} when for all integers $a$ and $b$, if $q \dv ab$ then $q \dv a$ or $q \dv b$.
+\end{define}
+\end{tcolorbox}
+\begin{enumerate}[label=\alph*).]
+    \item Why is $221$ NOT primal? Explain.
+    \item Using \textbf{proof by contradiction}, show that $3$ is primal. \textit{First write down the actual statement to be proven as an implication and then clearly state what assumptions etc. you have to make to write down a proof using the method of contradiction.}
+    \item Prove that the square root of any \textbf{primal} integer is always irrational.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum}
+Answer the following:
+\begin{enumerate}[label=\alph*).]
+    \item Find all possible values of $r \in \bbZ$ such that $52 \leq r < 91$ and $5^{110} \equiv r \pmod{13}$.
+    \item Find all integers $x$ such that $[x]_{10} \cdot [6]_{10} = [2]_{10}$.
+    \item Find all integers $x$ such that $[3]_{5}\cdot [x]_{5} + [4]_{5}=[1]_{5}$.
+\end{enumerate}
+\end{problem}
+
+\newpage
+\begin{problem}{\problemnum}
+For this problem, you may use the results about closure of $\bbQ$ under addition, subtraction, multiplication and division (by non-zero rationals) without having to reprove them.
+
+Let $r, t \in \bbQ^{+}$ (positive rational numbers). Define $S=\sqrt{r}+\sqrt{t}$.
+\begin{enumerate}[label=\alph*).]
+\item Consider the following statement:
+\begin{tcolorbox}[colback=yellow!40!white, colframe=blue!60!black]
+\begin{quote}
+    If $S \in \bbZ$, then both $\sqrt{r}$ and $\sqrt{t}$ must be positive integers.
+\end{quote}
+\end{tcolorbox}
+Is this statement true or false. Justify your claim.
+\item Consider the following statement:
+\begin{tcolorbox}[colback=yellow!40!white, colframe=blue!60!black]
+\begin{quote}
+    If $S \in \bbZ$, then both $\sqrt{r}$ and $\sqrt{t}$ must be positive rational numbers.
+\end{quote}
+\end{tcolorbox}
+Is this statement true or false. Justify your claim.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum}
+In each of the following cases, determine (with proper reasoning) if $A \subseteq B,\, B \subseteq A, \, A=B$, or $A \cap B =\emptyset$ or none of these.
+\begin{enumerate}[label=\alph*).]
+     \item $A=\{x \in \bbZ \, | \, x \equiv 7 \pmod{9}\}$ and $B=3\bbZ+1$.
+    \item $A=[3]_4$ and $B=\{y \in \bbZ \, | \, \exists \, s \in \bbZ, \, y=3s+2\}$.
+    \item $A=\bbZ$ and $B=\{5m+12n \, | \, m,n \in \bbZ\}$.
+    \end{enumerate}
+\end{problem}
+
+
+\newpage
+\begin{problem}{\problemnum \, \textsf{(BLOCH 3.2.15)}}
+List all elements of each of the following sets:
+\begin{enumerate}[label=\alph*).]
+    \item $\power[\power[\emptyset]]$.
+    \item $\power[\power[\{\emptyset\}]]$.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}{\problemnum}
+Consider the following information regarding three sets $A, B$, and $C$ all of
+which are subsets of a set $U$. Suppose that $\abs{A} = 14, \abs{B} = 10, \abs{A \cup B \cup C} = 24$ and $\abs{A \cap B} = 6$.
+Consider the following assertions:
+\begin{enumerate}
+    \item $C$ has at most $24$ elements
+    \item $C$ has at least $6$ elements
+    \item $A \cup B$ has exactly $18$ elements
+\end{enumerate}
+With proper reasoning explain which of the assertions (given above) are true?
+\end{problem}
+
+\begin{problem}{\problemnum}
+Let $A$ and $B$ be non-empty sets. Decide which of the following statements are true and which are false. For the true statements, provide a proof and for the false ones, provide an appropriate counterexample which clearly demonstrates that the statement is false.
+\begin{enumerate}[label=\alph*).]
+    \item $A \subseteq B$ if and only if $\power[A] \subseteq \power[B]$.
+    \item $\power[A \cup B]=\power[A] \cup \power[B]$.
+    %%\item $\power[A \cap B]=\power[A] \cap \power[B]$.
+    \item $\power[A - B]=\power[A] - \power[B]$.
+    \item $\power[A] \times \power[B] \subseteq \power[A \times B]$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum \, \textsf{(based on BLOCH 3.3.13)}}
+Let $A, B$ and $C$ be sets.
+\begin{enumerate}[label=\alph*).]
+    \item Suppose we are given $x \not\in B-C$. Describe ALL possibilities for $x$ under which this statement will hold. \textit{\colorbox{yellow}{NOTE:} Your correct answer to this holds the key for the next part}.
+    \item Now assume that $C \subseteq A$. Prove that $A-(B-C)=(A-B) \cup C$.
+    \item By means of a counterexample show that \textbf{without the assumption} $C \subseteq A$, the set equality $A-(B-C)=(A-B) \cup C$ need not be true. In your example you should clearly demonstrate that why the two sides are not equal.
+    %%\item Since we know that $A-(B-C)=(A-B) \cup C$ is NOT true in general. We would like to know if some improvements can be made to this so that the result will hold true \textbf{for all} sets $A,B$ and $C$. Suggest an appropriate expression for $A-(B-C)$ which will hold true for all sets $A,B$ and $C$. You don't need to prove it.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}{\problemnum}
+We are given the following sets and an operation on each of them. 
+\begin{align*}
+A & =\bbR-\{0\} && \tcbhighmath{a \ast b = a+b+3ab}.\\
+B & =\{(x,y,z) \in \bbR^3 \, | \, x+y+z=1\} && \tcbhighmath{(a,b,c) \diamond (u,v,w)=(a+u,b+v,c+w)}.\\
+C & =\{(x,y) \, | \, x,y \in \bbZ \text{ and } y \neq 0\} && \tcbhighmath{(a,b) \otimes (u,v)=(av+bu, \, bv)}.\\
+D & =\{T \, | \, T \in \power[\bbN] \text{ and } \abs{T} \text{ is an even number}\} && \tcbhighmath{T_1 \oplus T_2=(T_1-T_2) \cup (T_2-T_1)}.
+\end{align*}
+As you may recall, the definition of \textbf{a set $S$ is closed under an operation $\star$} is given by:
+\begin{tcolorbox}[colback=red!10!white, colframe=red!50!blue, title=Closure under an operation, center title]
+\begin{define}
+A set $S$ is \textbf{closed} under the operation $\ast$ if for all $x,y \in S$, the element $x \ast y \in S$. %%%In symbolic logic it means:
+%%%\[\forall \, x,y \in S \, (x \ast y \in S).\]
+\end{define}
+\end{tcolorbox}
+Here is another definition:
+\begin{tcolorbox}[colback=red!10!white, colframe=red!50!blue, title=Identity element under the operation $\star$, center title]
+\begin{define}
+An element $e \in S$ is the \textbf{identity element} for the operation $\ast$ if
+\[\tcbhighmath{\forall \, x \in S \quad  x \ast e = x \qquad \text{ and } \quad e \ast x = x}. \]
+%In symbolic logic it means:
+%\[e\in S \text{ is an identity element if } \forall \, x\in S \, ((x \ast e =x) \wedge ((e \ast x =x)).\]
+\end{define}
+For example, $\bbR$ has $0$ as an identity element under $+$ and $\bbR$ has $1$ as an identity element under $\times$.
+\end{tcolorbox}
+
+\begin{enumerate}[label=\alph*).]
+\item Which of the sets given above are \textbf{closed} under the indicated operation? Justify your claim. If you are claiming it is NOT closed under the given operation, then provide a counterexample. If you are asserting that it is closed under the operation then provide a proof for it.
+\item Does set $B$ have an identity element for the operation $\diamond$? Justify your assertion.
+\item For the sets $A,C$ and $D$ along with their respective operations as described above, find an identity element for each of them. Justify your answer.
+\end{enumerate}
+\end{problem}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{problem}{\problemnum \, \textsf{(BLOCH 2.5.5)}}
+% Prove or give a counterexample to each of the following statements
+% \begin{enumerate}[label=\alph*).]
+%    \item For each real number $y$, there exists a real number $x$ such that $e^x - y >0$.
+%    \item There exists a real number $x$ such that for all real numbers $y$, the inequality $e^x-y>0$ holds.
+% \end{enumerate}
+%\end{problem}
+
+%%\begin{problem}{\problemnum}
+%% Consider the following solitaire game:
+%%\begin{center}
+%%\includegraphics[width=2in]{hw3_circles}
+%%\end{center}
+%%The picture above contains three circles drawn in the plane.  In each of the bounded regions formed by the intersections of these circles, we've placed a coin, which is white on one side and black on the other.  All of the coins start with their black side up.
+%%
+%%The moves you're allowed to perform in this game are the following:
+%%\begin{itemize}
+%%\item You can at any time flip all of the coins within any circle.
+%%\item Alternately, you can at any time take any circle and flip all of its white coins over to black.
+%%\end{itemize}
+%%Can you ever reach the following configuration?  (Prove your claim.)
+%%\begin{center}
+%%\includegraphics[width=2in]{hw3_circles2}
+%%\end{center}
+%%\end{problem}
+%
+%%
+%%\begin{problem}{\problemnum \, \textsf{(BLOCH 2.5.8)}}
+%%Prove or give a counterexample to the following statement For each real number $p$ there exists a real number $q$ and a real number $r$ such that $q \sin \left(\frac{r}{5}\right)=p$.
+%%\end{problem}
+
+
+
+
+%%\begin{problem}{\problemnum \, \textsf{(sort of BLOCH 2.4.3)}}
+%%We define a pair of integers $a$ and $b$ to be \textbf{relatively prime} if the following condition holds: ``if $n$ is an integer such that $n \dv a$ and $n \dv b$, then $n =\pm 1$. In other words, the only common divisors of both $a$ and $b$ are $\pm 1$.''
+%%\begin{enumerate}
+%%    \item Which of the following pairs $(a,b)$ are relatively prime integers:
+%%    \[(30,17), \quad (-5, 5), \quad (0,2), \quad \left(2^{300}, 3^{200}\right), \quad (17!, 18!), \quad (0,0)\]
+%%    \item Prove that the following are equivalent (TFAE) statements:
+%%        \begin{enumerate}
+%%            \item $x$ and $y$ are relatively prime.
+%%            \item $x+y$ and $y$ are relatively prime.
+%%            \item $x-y$ and $y$ are relatively prime.
+%%        \end{enumerate}
+%%        \textsf{NOTE:}
+%%        \begin{itemize}
+%%            \item In order to show that the statements are equivalent, you need to establish that $(a) \implies (b) \implies (c) \implies (a)$. You may do it in any order, as long as you loop back to where you started from. In mathematics, having equivalent criterion for the same result are considered very useful.
+%%
+%%            \item If you are using a result from a previous homework, then please quote the result and there is no need to reprove it here.
+%%        \end{itemize}
+%%\end{enumerate}
+%%\end{problem}
+
+%%
+%%\begin{problem}{\problemnum}
+%%\textbf{(Your chance to be a teacher!!)}
+%%
+%%In each case, there is a proposed proof of a proposition. However, the proposition may be true
+%%or may be false.
+%%\begin{itemize}
+%%    \item If a proposition is false, the proposed proof is, of course, incorrect. In
+%%this situation, you are to find the error in the proof and then provide a
+%%counterexample showing that the proposition is false.
+%%    \item If a proposition is true, the proposed proof may still be incorrect. In this
+%%case, you are to determine why the proof is incorrect and then write a
+%%correct proof using the writing guidelines that have been presented in class.
+%%    \item If a proposition is true and the proof is correct, you are to decide if the
+%%proof is well written or not. If it is well written, then you simply must
+%%indicate that this is an excellent proof and needs no revision. On the
+%%other hand, if the proof is not well written, then you must revise the proof by writing it according to the guidelines presented in the class.
+%%\end{itemize}
+%%
+%%\begin{proposition}
+%%    For all nonzero integers $a$ and $b$, if $a+2b \neq 3$ and $9a+2b \neq 1$, then the equation $ax^3+2bx=3$ does not have a solution that is a natural number.
+%%\end{proposition}
+%%\begin{proof}\textbf{(First proof)}
+%%We will prove the contrapositive, which is
+%%
+%%For all nonzero integers $a$ and $b$, if the equation $ax^3+2bx=3$ has
+%%a solution that is a natural number, then $a+2b=3$ or $9a+2b=1$.
+%%
+%%So we let $a$ and $b$ be nonzero integers and assume that the natural
+%%number $n$ is a solution of the equation $ax^3+2bx=3$. So we have
+%%\begin{align*}
+%%    an^3+2bn & = 3\\
+%%    n(an^2+2b) & =3.
+%%\end{align*}
+%%So we can conclude that $n=3$ or $an^2+2b=1$. Since we now have
+%%the value of $n$, we can substitute it in the equation $an^3+2bn = 3$ and
+%%obtain $27a+6b=3$. Dividing both sides of this equation by $3$ shows
+%%that $9a+2b=1$. So there is no need for us to go any further, and this
+%%concludes the proof of the contrapositive of the proposition.
+%%\end{proof}
+%%
+%%\begin{proof}\textbf{(Second proof)}
+%%We will use a proof by contradiction. Let us assume that there
+%%exist nonzero integers $a$ and $b$ such that $a+2b=3$ and $9a+2b=1$
+%%and $an^3+2bn=3$, where $n$ is a natural number. First, we will solve
+%%one equation for $2b$; doing this, we obtain
+%%\begin{align}
+%%a+2b & =3 \nonumber\\
+%%\label{eq:1}
+%%2b & =3-a.
+%%\end{align}
+%%We can now substitute for $2b$ in $an^3+2bn=3$. This gives
+%%\begin{align}
+%%    an^3+(3-a)n & = 3 \nonumber \\
+%%    \label{eq:2}
+%%    n(an^2+3-a) & = 3.
+%%\end{align}
+%%By the closure properties of the integers, $(an^2+3-a)$ is an integer
+%%and, hence, equation \eqref{eq:2} implies that $n$ divides $3$. So $n=1$ or $n=3$.
+%%When we substitute $n=1$ into the equation $an^3+2bn=3$, we obtain
+%%$a+2b=3$. This is a contradiction since we are told in the proposition
+%%that $a+2b \neq 3$. This proves that the negation of the proposition is
+%%false and, hence, the proposition is true.
+%%\end{proof}
+%%\end{problem}
+
+%\begin{problem}{\problemnum}
+%Determine (with proper justification) which of the following sets are equal and which are proper subsets of which.
+%\begin{align*}
+%M & = \left\{x \in \bbR \, | \, \sqrt{x^2}=x\right\}\\
+%A & = \left\{x \in \bbR \, | \, \frac{1+\sqrt{x}}{1-\sqrt{x}} \in \bbR\right\}\\
+%T & = \left\{x \in \bbR \, | \, x >0\right\}\\
+%H & = \left\{x \in \bbR \, | \, \frac{x}{(1-x)^4} \in \bbR\right\}\\
+%S & = \left\{x^2 \in \bbR \, | \, x \in \bbR\right\}
+%\end{align*}
+%\end{problem}
